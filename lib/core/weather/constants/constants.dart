@@ -1,8 +1,15 @@
 
+import 'package:mirror/env/env.dart';
+
 class WeatherConstants{
   const WeatherConstants._();
 
-  static const baseUrl = 'http://api.weatherapi.com/v1';
-  static const forcastUrl = 'forecast.json';
-  static const realtimeUrl = 'current.json';
+  static const baseUrl = 'api.weatherapi.com';
+  static const forcastUrl = '/v1/forecast.json';
+  static const realtimeUrl = '/v1/current.json';
+
+  static final apiKey = Env.weatherApiKey;
+
+  
+  
 }

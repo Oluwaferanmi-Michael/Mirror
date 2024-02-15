@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+// import 'package:mirror/core/services/permissions/permissions_provider/permissions_provider.dart';
+import 'package:mirror/views/test_views/test.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const ProviderScope(child: MainApp()));
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends ConsumerWidget {
   const MainApp({super.key});
-
+  
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref)  {
+    
+    // ref.watch(permissionsProvider.notifier).askLocationPermission();
+
     return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      home: TestView()
     );
   }
 }
