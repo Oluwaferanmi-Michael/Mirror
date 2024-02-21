@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mirror/core/services/permissions/permissions_provider/permissions_provider.dart';
+// import 'package:mirror/views/test_views/test_view_2.dart';
+import 'package:mirror/views/test_views/test_view_3.dart';
 import '../../core/weather/providers/weather_provider.dart';
 
 
@@ -13,14 +15,19 @@ class TestView extends ConsumerWidget {
     final weather = ref.watch(weatherProvider);
 
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Text('Weather:'),
-            Text(weather)
-          ],
-        )
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text('Weather:'),
+              Text(weather),
+              TextButton.icon(onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => 
+                const TestView3())), icon: const Icon(Icons.arrow_circle_right_outlined), label: const Text('cam page'))
+            ],
+          )
+        ),
       ),
 
       floatingActionButton: FloatingActionButton(
@@ -28,7 +35,7 @@ class TestView extends ConsumerWidget {
         onPressed: () async {
 
           final locationPermissionNotifier = ref.watch(permissionsProvider.notifier);
-          final checkPermission = await locationPermissionNotifier.getCurrentPermission();
+          final checkPermission = await locationPermissionNotifier.getCurrentLocationPermission();
 
           if (checkPermission == false){
             await locationPermissionNotifier.askLocationPermission()

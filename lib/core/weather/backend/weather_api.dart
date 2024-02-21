@@ -9,14 +9,15 @@ class WeatherApi {
   const WeatherApi();
 
   Future<dynamic> forecastCall({
-    required String position,
+    required Map<String, dynamic> params,
   }) async {
     // final url = Uri.https('www.google.com');
 
     final url = Uri.https(
       WeatherConstants.baseUrl,
       WeatherConstants.forcastUrl,
-      {'q' : position, 'days' : '7', 'key': WeatherConstants.apiKey}
+      params
+      // {'q' : position, 'days' : '7', 'key': WeatherConstants.apiKey}
     );
 
     try{
