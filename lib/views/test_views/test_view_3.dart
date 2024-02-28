@@ -1,8 +1,10 @@
+import 'package:camera/camera.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:mirror/core/services/camera/provider/camera_controller_provider.dart';
 import 'package:mirror/core/services/permissions/permissions_provider/permissions_provider.dart';
-import 'package:camera/camera.dart';
+
+import '../../core/services/camera/clipper/custom_clipper.dart';
 
 class TestView3 extends ConsumerStatefulWidget {
   const TestView3({super.key});
@@ -10,6 +12,8 @@ class TestView3 extends ConsumerStatefulWidget {
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _TestView3State();
 }
+
+
 
 class _TestView3State extends ConsumerState<TestView3> {
 
@@ -20,7 +24,7 @@ class _TestView3State extends ConsumerState<TestView3> {
     final permissionNotifier = ref.watch(permissionsProvider.notifier);
     final cameraController = ref.watch(cameraControllerProvider);
     final cameraControllerNotifier = ref.watch(cameraControllerProvider.notifier);
-
+    final mediaSize = MediaQuery.of(context).size;
 
     if(permission != true){
       permissionNotifier.askCameraPermission().then(
@@ -33,8 +37,16 @@ class _TestView3State extends ConsumerState<TestView3> {
     }
 
     return cameraController == null || !cameraControllerNotifier.isInitialized ?
-      const Scaffold(body: Center(child: CircularProgressIndicator())) :
-      AspectRatio(aspectRatio: 1 / cameraControllerNotifier.aspectRatio,
-      child: CameraPreview(cameraController),);
+      
+      const Center(child: CircularProgressIndicator()) :
+
+          ClipRect(
+            clipper: CameraViewClipper(mediaSize),
+            child: Transform.scale(
+              scale: 1.2 / (cameraControllerNotifier.aspectRatio * mediaSize.aspectRatio),
+              alignment: Alignment.center,
+              child: CameraPreview(cameraController)
+            ),
+          );
   }
 }

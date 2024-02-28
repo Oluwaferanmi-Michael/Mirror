@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mirror/core/services/permissions/permissions_provider/permissions_provider.dart';
+import 'package:mirror/views/main_view.dart';
 // import 'package:mirror/views/test_views/test_view_2.dart';
-import 'package:mirror/views/test_views/test_view_3.dart';
+
 import '../../core/weather/providers/weather_provider.dart';
 
 
@@ -24,7 +25,7 @@ class TestView extends ConsumerWidget {
               Text(weather),
               TextButton.icon(onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(builder: (_) => 
-                const TestView3())), icon: const Icon(Icons.arrow_circle_right_outlined), label: const Text('cam page'))
+                const MainView())), icon: const Icon(Icons.arrow_circle_right_outlined), label: const Text('cam page'))
             ],
           )
         ),

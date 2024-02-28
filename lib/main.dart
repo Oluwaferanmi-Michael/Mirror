@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-// import 'package:mirror/core/services/permissions/permissions_provider/permissions_provider.dart';
-import 'package:mirror/views/test_views/test.dart';
+import 'package:mirror/views/test_views/test_view_2.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +16,7 @@ class MainApp extends ConsumerWidget {
     // ref.watch(permissionsProvider.notifier).askLocationPermission();
 
     return const MaterialApp(
-      home: TestView()
+      home: TestView2()
     );
   }
 }

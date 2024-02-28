@@ -7,7 +7,8 @@ class CameraControllerNotifier extends StateNotifier<CameraController?> {
   }
 
   double get aspectRatio => state!.value.aspectRatio;
-  bool get isInitialized => state!.value.isInitialized;
+  bool get isInitialized => state!.value.isInitialized; 
+  
 
 
   Future<void> _initializeCamera() async {

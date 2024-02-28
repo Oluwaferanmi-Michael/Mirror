@@ -1,7 +1,9 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mirror/core/services/permissions/permissions_provider/permissions_provider.dart';
+import 'package:mirror/helpers/constants/constants.dart';
+import 'package:mirror/helpers/extensions/extensions.dart';
+import 'package:mirror/views/widgets/response_widgets.dart';
+import 'package:mirror/views/widgets/time_widget.dart';
 
 class TestView2 extends ConsumerStatefulWidget {
   const TestView2({super.key});
@@ -11,45 +13,41 @@ class TestView2 extends ConsumerStatefulWidget {
 }
 
 class _TestView2State extends ConsumerState<TestView2> {
-
-late CameraController _controller;
-
-
-@override
-void initState() {
-  super.initState();
-  _controller = CameraController(
-    const CameraDescription(
-      name: '1',
-      lensDirection: CameraLensDirection.front,
-      sensorOrientation: 90),
-    ResolutionPreset.veryHigh
-  );
-
-  _controller.initialize().then(
-    (value) {if(!mounted) return;
-    });
-  
-}
-
-@override
-void dispose() {
-  super.dispose();
-  _controller.dispose();
-}
-
   @override
   Widget build(BuildContext context) {
+    final mediaSize = MediaQuery.of(context).size;
 
-    final permission = ref.watch(permissionsProvider).cameraPermission;
-
-      if (permission != true){
-        if(!_controller.value.isInitialized){
-          return const Scaffold( body: SizedBox( child: Center(child: Text('nope'))));
-          }
-      }
-      return AspectRatio(
-        aspectRatio: 1 / _controller.value.aspectRatio,
-        child: CameraPreview(_controller));
-    }
+    return Scaffold(
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          Image.asset(AppConstants.testScreenImage.imgAsset()),
+          Container(
+            width: mediaSize.width,
+            height: mediaSize.height,
+            alignment: Alignment.topCenter,
+            child: Column(
+              children: [
+                Flexible(
+                    flex: 1,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 32, vertical: 24),
+                      // color: Colors.purpleAccent,
+                      child: const SafeArea(child: ResponseWidgets()),
+                    )),
+                Opacity(
+                    opacity: .6,
+                    child: GestureDetector(
+                      onLongPressDown: (details) {},
+                      child: Container(height: 130, color: Colors.amberAccent),
+                    ))
+              ],
+            ),
+          ),
+          const Positioned(bottom: 100, child: TimeDateWidget())
+        ],
+      ),
+    );
   }
+}
