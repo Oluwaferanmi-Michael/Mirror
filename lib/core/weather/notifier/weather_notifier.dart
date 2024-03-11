@@ -19,7 +19,7 @@ class WeatherNotifier extends StateNotifier<String>{
     final location = UserLocation(latitude: position.latitude, longitude: position.longitude).toString();
 
     final params = WeatherQueryParam(query: location, apiKey: Env.weatherApiKey);
-    print(params);
+    // print(params);
 
     final value = await _weatherApi.forecastCall(params: params);
 

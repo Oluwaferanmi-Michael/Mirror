@@ -40,7 +40,7 @@ class _TestView2State extends ConsumerState<TestView2> {
                     opacity: .6,
                     child: GestureDetector(
                       onLongPressDown: (details) {},
-                      child: Container(height: 130, color: Colors.amberAccent),
+                      child: Container(height: 130),
                     ))
               ],
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mirror/helpers/constants/constants.dart';
+// import 'package:mirror/helpers/extensions/extensions.dart';
 
 class ResponseWidgets extends HookConsumerWidget {
   const ResponseWidgets({super.key});
@@ -9,11 +10,18 @@ class ResponseWidgets extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      const Opacity(
+      Opacity(
         opacity: .6,
         child: CircleAvatar(
-          child: Text('AI'),
-        ),
+            backgroundColor: Colors.black,
+            child: Text(
+              'm',
+              textHeightBehavior: const TextHeightBehavior(
+                  applyHeightToFirstAscent: false,
+                  applyHeightToLastDescent: false),
+              style:
+                  GoogleFonts.courierPrime(color: Colors.white, fontSize: 24),
+            )),
       ),
       const SizedBox(
         height: 12,
@@ -35,7 +43,7 @@ class ResponseWidgets extends HookConsumerWidget {
                       const Shadow(
                           color: Color(0xFF161616),
                           offset: Offset(0, 1),
-                          blurRadius: .5),
+                          blurRadius: 0),
                     ],
                     color: Colors.white,
                     fontSize: 12,
