@@ -1,7 +1,9 @@
 class FunctionKeys {
   const FunctionKeys._();
 
+  static const type = 'type';
   static const name = 'name';
+  static const function = 'function';
   static const description = 'description';
   static const parameters = 'parameters';
 }

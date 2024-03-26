@@ -10,18 +10,24 @@ class AiApi {
   Future<dynamic> functionCallingApi({
     required Map<String, dynamic> body,
   }) async {
-    final url = Uri.https(
-      Constants.baseUrl,
-    );
+    final url = Uri.https(Constants.baseUrl, Constants.chatCompletions);
 
     final headers = RequestHeaders();
 
+    print('this is the body to be sent:, $body');
+
     final requestBody = json.encode(body);
 
-    final request = await http.post(
+    final response = await http.post(
       url,
       headers: headers,
       body: requestBody,
     );
+
+    final ai = json.decode(response.body);
+
+    print(ai);
+
+    return ai;
   }
 }

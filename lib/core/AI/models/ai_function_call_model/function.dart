@@ -4,11 +4,20 @@ import 'package:mirror/core/AI/models/ai_function_call_model/constants/constants
 
 class AiFunction extends MapView<String, dynamic> {
   AiFunction({
-    required String functionName,
-    String? description,
-    Map<String, dynamic>? parameters
+    required Map<String, dynamic> toolFunction
   }) : super({
-    FunctionKeys.name : functionName,
+    FunctionKeys.type: 'function',
+    FunctionKeys.function: toolFunction,
+  });
+}
+
+class ToolFunction extends MapView<String, dynamic> {
+  ToolFunction({
+    required String name,
+    required String description,
+    String? parameters
+  }) : super({
+    FunctionKeys.name: name,
     FunctionKeys.description: description,
     FunctionKeys.parameters: parameters
   });
