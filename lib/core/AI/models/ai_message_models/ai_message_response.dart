@@ -33,7 +33,7 @@ class ToolCalls {
       : id = tool[AiResponseKeys.id],
         type = tool[AiResponseKeys.type],
         function = tool[AiResponseKeys.function]
-                .map((data) => FunctionResponse.fromFunction(function: data));
+            .map((data) => FunctionResponse.fromFunction(function: data));
 }
 
 class ChoiceMessage {

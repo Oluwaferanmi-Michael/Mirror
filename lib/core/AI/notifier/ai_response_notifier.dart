@@ -1,8 +1,10 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
 import 'package:mirror/core/AI/models/ai_function_call_model/function.dart';
 import 'package:mirror/core/AI/models/ai_response.dart';
 import 'package:mirror/core/AI/models/message_model.dart';
-import 'package:mirror/core/AI/models/notifier_state.dart';
+import 'package:mirror/core/AI/helpers/notifier_state.dart';
+
 import 'package:mirror/helpers/logger.dart';
 
 import '../backend/ai_api.dart';
@@ -11,16 +13,14 @@ import '../models/ai_request_model.dart';
 class AiResponseNotifier extends StateNotifier<AiNotifierState> {
   AiResponseNotifier() : super(AiNotifierState.empty);
 
-  void get future => state;
-
-  final _apiService = const AiApi();
+  late final _apiService = const AiApi();
 
   final tools = [
     AiFunction(
         toolFunction: ToolFunction(
-          name: 'weatherForecast',
-          description: 'Describes the weather forcast for the specified period'
-        ))
+            name: 'weatherForecast',
+            description:
+                'Describes the weather forcast for the specified period'))
   ];
 
   Future<AiResponse> _apiFunction({required String userRequest}) async {
