@@ -1,7 +1,11 @@
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mirror/core/AI/helpers/notifier_state.dart';
-import 'package:mirror/core/AI/notifier/ai_response_notifier.dart';
+import 'dart:async';
 
-final aiRequestProvider = StateNotifierProvider<AiResponseNotifier, AiNotifierState>((ref) {
-  return AiResponseNotifier();
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'package:mirror/core/AI/models/model/message_class.dart';
+import 'package:mirror/core/AI/notifier/ai_notifier.dart';
+
+final aiRequestProvider = StateNotifierProvider<AiRequestNotifier, List<MessageClass>>((ref) {
+  
+  return AiRequestNotifier();
 });

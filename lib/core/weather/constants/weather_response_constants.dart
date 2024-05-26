@@ -1,0 +1,36 @@
+class WeatherResponseConstants {
+  const WeatherResponseConstants._();
+  static const location = 'location';
+  static const name = 'name';
+  static const region = 'region';
+  static const country = 'country';
+  static const lat = 'lat';
+  static const lon = 'lon';
+  static const timeZone = 'tz_id';
+  static const localTime = 'localtime';
+  static const current = 'current';
+  static const tempC = 'temp_c';
+  static const tempF = 'temp_f';
+  static const isDay = 'is_day';
+  static const text = 'text';
+  static const icon = 'icon';
+  static const code = 'code';
+  static const cloud = 'cloud';
+  static const feelsLikeC = 'feelslike_c';
+  static const uv = 'uv';
+  static const forecast = 'forecast';
+  static const forecastDay = 'forecastday';
+  static const date = 'date';
+  static const day = 'day';
+  static const maxTempC = 'maxtemp_c';
+  static const minTempC = 'mintemp_c';
+  static const maxTempF = 'maxtemp_f';
+  static const avgTempC = 'avgtemp_c';
+  static const totalPrecipIn = 'totalprecip_in';
+  static const totalSnowCm = 'totalsnow_cm';
+  static const dailyChanceOfRain = 'daily_chance_of_rain';
+  static const dailyChanceOfSnow = 'daily_chance_of_snow';
+  static const condition = 'condition';
+  static const astro = 'astro';
+  static const hour = 'hour';
+}

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mirror/helpers/constants/constants.dart';
 import 'package:mirror/helpers/extensions/extensions.dart';
-import 'package:mirror/views/widgets/response_widgets.dart';
+import 'package:mirror/views/widgets/response_widgets/ai_response_widgets.dart';
 import 'package:mirror/views/widgets/time_widget.dart';
 
 class TestView2 extends ConsumerStatefulWidget {
@@ -34,7 +34,7 @@ class _TestView2State extends ConsumerState<TestView2> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 32, vertical: 24),
                       // color: Colors.purpleAccent,
-                      child: const SafeArea(child: ResponseWidgets()),
+                      child: const SafeArea(child: AiResponseWidgets()),
                     )),
                 Opacity(
                     opacity: .6,

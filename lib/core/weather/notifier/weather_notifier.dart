@@ -1,28 +1,21 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mirror/core/services/location/models/user_location_model.dart';
+
 import 'package:mirror/core/weather/models/weather_query_param_model.dart';
 import 'package:mirror/env/env.dart';
-import '../backend/weather_api.dart';
+
+
 import '../../services/location/location.dart';
+import '../controller/weather_controler.dart';
+import '../models/weather_model.dart';
 
-class WeatherNotifier extends StateNotifier<String>{
-  WeatherNotifier() : super('place String');
+class WeatherNotifier extends StateNotifier<WeatherModel> {
+  WeatherNotifier() : super(WeatherModel.none());
 
-  final _weatherApi = const WeatherApi();
-  final _location = LocationService();
-
+  final _weather = WeatherController();
 
   Future<void> weatherForecast() async {
-
-    final position = await _location.getUserLocation();
-
-    final location = UserLocation(latitude: position.latitude, longitude: position.longitude).toString();
-
-    final params = WeatherQueryParam(query: location, apiKey: Env.weatherApiKey);
-    // print(params);
-
-    final value = await _weatherApi.forecastCall(params: params);
-
-    state = '$value';
+    final weather = await _weather.weatherForecast();
+    state = weather;
   }
 }

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:mirror/core/AI/constants/constants.dart';
 import 'package:mirror/core/AI/models/open_ai_request_headers.dart';
+import 'package:mirror/helpers/logger.dart';
 
 class AiApi {
   const AiApi();
@@ -14,7 +15,7 @@ class AiApi {
 
     final headers = RequestHeaders();
 
-    print('this is the body to be sent:, $body');
+    body.log('this is the body to be sent:');
 
     final requestBody = json.encode(body);
 
@@ -26,7 +27,7 @@ class AiApi {
 
     final ai = json.decode(response.body);
 
-    print(ai);
+    ai;
 
     return ai;
   }

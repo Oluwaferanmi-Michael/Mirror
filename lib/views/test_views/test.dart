@@ -22,7 +22,7 @@ class TestView extends ConsumerWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               const Text('Weather:'),
-              Text(weather),
+              // Text(weather),
               TextButton.icon(onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(builder: (_) => 
                 const MainView())), icon: const Icon(Icons.arrow_circle_right_outlined), label: const Text('cam page'))

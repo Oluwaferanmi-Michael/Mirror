@@ -10,6 +10,8 @@ class AiResponseKeys {
   static const message = 'message';
   static const role = 'role';
   static const content = 'content';
+  static const images = 'images';
+  static const links = 'links';
   static const toolCalls = 'tool_calls';
   static const type = 'type';
   static const function = 'function';

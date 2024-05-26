@@ -4,8 +4,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mirror/helpers/constants/constants.dart';
 // import 'package:mirror/helpers/extensions/extensions.dart';
 
-class ResponseWidgets extends HookConsumerWidget {
-  const ResponseWidgets({super.key});
+class AiResponseWidgets extends HookConsumerWidget {
+  const AiResponseWidgets({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
