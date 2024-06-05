@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 import 'package:mirror/core/weather/constants/constants.dart';
-import 'package:mirror/core/weather/models/weather_query_param_model.dart';
 
 class WeatherApi {
   const WeatherApi();

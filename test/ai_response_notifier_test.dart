@@ -1,5 +1,4 @@
 import 'package:mirror/core/AI/helpers/notifier_state.dart';
-import 'package:mirror/core/AI/notifier/ai_notifier.dart';
 import 'package:test/test.dart';
 
 void main() {

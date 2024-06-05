@@ -1,4 +1,3 @@
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mirror/core/services/location/models/user_location_model.dart';
 
 import 'package:mirror/core/weather/models/weather_query_param_model.dart';

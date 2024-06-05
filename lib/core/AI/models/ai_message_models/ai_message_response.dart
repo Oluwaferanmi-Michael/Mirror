@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:mirror/core/AI/constants/response_keys.dart';
-import 'package:mirror/core/AI/models/model/message_class.dart';
+
 import 'package:mirror/core/weather/constants/weather_query_keys.dart';
 import 'package:mirror/helpers/logger.dart';
 

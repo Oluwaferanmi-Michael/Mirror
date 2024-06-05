@@ -13,7 +13,7 @@ class TestView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
 
-    final weather = ref.watch(weatherProvider);
+    // final weather = ref.watch(weatherProvider);
 
     return Scaffold(
       body: SingleChildScrollView(

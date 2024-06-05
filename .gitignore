@@ -38,6 +38,7 @@ app.*.symbols
 app.*.map.json
 
 *.env
+*.g.dart
 env.g.dart
 
 # Android Studio will place build artifacts here
